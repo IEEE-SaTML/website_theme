@@ -31,11 +31,11 @@
       {{- if eq .Params.attribution true }}
         <div class="col-auto mx-auto">
           <div class="row mx-0 navbar-text text-center
-            {{- partial "helpers/text-color.html" (dict "self" $self "light" "white" "dark" "black-50") -}}
+            {{- partial "helpers/text-color.html" (dict "self" $self "light" "white" "dark" "white-50") -}}
           ">
             {{- i18n "attribution" -}}
-            <a href="https://syna.okkur.org" class="ml-1">
-              {{- printf "Syna" -}}
+            <a href="https://www.ieee.org/content/dam/ieee-org/ieee/web/org/about/ieee_code_of_conduct.pdf" class="ml-1">
+              {{- printf "IEEE Code of Conduct" -}}
             </a>
           </div>
         </div>

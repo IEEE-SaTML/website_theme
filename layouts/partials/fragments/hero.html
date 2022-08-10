@@ -50,6 +50,15 @@
         ></img>
       </div>
     {{- end }}
+        {{- with .Params.subtitle }}
+      <div class="hero-subtitle-container row justify-content-center align-items-start">
+        <h1 class="hero-subtitle overlay jumbotron-heading my-4
+          {{- partial "helpers/text-color.html" (dict "self" $self.self) -}}
+        ">
+          {{- . | markdownify -}}
+        </h1>
+      </div>
+    {{- end -}}
     {{- with .Params.subtitle }}
       <div class="hero-subtitle-container row justify-content-center align-items-start">
         <h1 class="hero-subtitle overlay jumbotron-heading my-4
@@ -72,20 +81,47 @@
       {{- with .Params.title }}
         <div class="hero-title-container row justify-content-center align-items-start">
           <h1 class="hero-title overlay jumbotron-heading
-            {{- partial "helpers/text-color.html" (dict "self" $self.self) -}}
+            {{- partial "helpers/text-color.html" (dict "self" $self.self "light" "white" "dark" "white") -}}
           ">
             {{- . -}}
           </h1>
         </div>
       {{- end -}}
     {{- end -}}
-    {{- with .Params.subtitle }}
+    {{- with .Params.subtitle1 }}
       <div class="hero-subtitle-container row justify-content-center align-items-start">
-        <div class="hero-subtitle overlay lead
-          {{- partial "helpers/text-color.html" (dict "self" $self.self) -}}
+        <h2 class="hero-subtitle overlay jumbotron-heading
+          {{- partial "helpers/text-color.html" (dict "self" $self.self "light" "white" "dark" "white") -}}
         ">
           {{- . | markdownify -}}
-        </div>
+      </h2>
+      </div>
+    {{- end -}}
+    {{- with .Params.subtitle2 }}
+      <div class="hero-subtitle-container row justify-content-center align-items-start">
+        <h2 class="hero-subtitle overlay jumbotron-heading
+          {{- partial "helpers/text-color.html" (dict "self" $self.self "light" "white" "dark" "white") -}}
+        ">
+          {{- . | markdownify -}}
+        </h2>
+      </div>
+    {{- end -}}
+    {{- with .Params.subtitle3 }}
+      <div class="hero-subtitle-container row justify-content-center align-items-start">
+        <h2 class="hero-subtitle overlay jumbotron-heading
+          {{- partial "helpers/text-color.html" (dict "self" $self.self "light" "white" "dark" "white") -}}
+        ">
+          {{- . | markdownify -}}
+        </h2>
+      </div>
+    {{- end -}}
+    {{- with .Params.subtitle4 }}
+      <div class="hero-subtitle-container row justify-content-center align-items-start">
+        <h2 class="hero-subtitle overlay jumbotron-heading
+          {{- partial "helpers/text-color.html" (dict "self" $self.self "light" "white" "dark" "white") -}}
+        ">
+          {{- . | markdownify -}}
+        </h2>
       </div>
     {{- end -}}
   {{- end -}}
