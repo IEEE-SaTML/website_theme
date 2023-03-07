@@ -4,9 +4,9 @@
 // and disabled options for all buttons
 
 @mixin button-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%)) {
-  color: color-yiq($background);
+  color: color-yiq($background) !important;
   @include gradient-bg($background);
-  border-color: $border;
+  border-color: $border !important;
   @include box-shadow($btn-box-shadow);
 
   @include hover() {
@@ -20,9 +20,12 @@
     color: color-yiq($hover-background);
     @include gradient-bg($hover-background);
     border-color: $hover-border;
+
     @if $enable-shadows {
       @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5));
-    } @else {
+    }
+
+    @else {
       // Avoid using mixin so we can pass custom focus shadow properly
       box-shadow: 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
     }
@@ -31,9 +34,10 @@
   // Disabled comes first so active can properly restyle
   &.disabled,
   &:disabled {
-    color: color-yiq($background);
-    background-color: $background;
-    border-color: $border;
+    color: color-yiq($background) !important;
+    background-color: $background !important;
+    border-color: $border !important;
+
     // Remove CSS gradients if they're enabled
     @if $enable-gradients {
       background-image: none;
@@ -42,18 +46,22 @@
 
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
-  .show > &.dropdown-toggle {
-    color: color-yiq($active-background);
-    background-color: $active-background;
+  .show>&.dropdown-toggle {
+    color: color-yiq($active-background) !important;
+    background-color: $active-background !important;
+
     @if $enable-gradients {
       background-image: none; // Remove the gradient for the pressed/active state
     }
-    border-color: $active-border;
+
+    border-color: $active-border !important;
 
     &:focus {
-      @if $enable-shadows and $btn-active-box-shadow != none {
+      @if $enable-shadows and $btn-active-box-shadow !=none {
         @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5));
-      } @else {
+      }
+
+      @else {
         // Avoid using mixin so we can pass custom focus shadow properly
         box-shadow: 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
       }
@@ -62,13 +70,13 @@
 }
 
 @mixin button-outline-variant($color, $color-hover: color-yiq($color), $active-background: $color, $active-border: $color) {
-  color: $color;
-  border-color: $color;
+  color: $color !important;
+  border-color: $color !important;
 
   @include hover() {
-    color: $color-hover;
-    background-color: $active-background;
-    border-color: $active-border;
+    color: $color-hover !important;
+    background-color: $active-background !important;
+    border-color: $active-border !important;
   }
 
   &:focus,
@@ -78,21 +86,23 @@
 
   &.disabled,
   &:disabled {
-    color: $color;
-    background-color: transparent;
+    color: $color !important;
+    background-color: transparent !important;
   }
 
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
-  .show > &.dropdown-toggle {
-    color: color-yiq($active-background);
-    background-color: $active-background;
-    border-color: $active-border;
+  .show>&.dropdown-toggle {
+    color: color-yiq($active-background) !important;
+    background-color: $active-background !important;
+    border-color: $active-border !important;
 
     &:focus {
-      @if $enable-shadows and $btn-active-box-shadow != none {
+      @if $enable-shadows and $btn-active-box-shadow !=none {
         @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width rgba($color, .5));
-      } @else {
+      }
+
+      @else {
         // Avoid using mixin so we can pass custom focus shadow properly
         box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
       }
