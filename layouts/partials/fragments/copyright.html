@@ -30,9 +30,7 @@
       </div>
       {{- if eq .Params.attribution true }}
         <div class="col-auto mx-auto">
-          <div class="row mx-0 navbar-text text-center
-            {{- partial "helpers/text-color.html" (dict "self" $self "light" "white" "dark" "white-50") -}}
-          ">
+          <div class="row mx-0 navbar-text text-center dark">
             {{- i18n "attribution" -}}
             <a href="https://www.ieee.org/content/dam/ieee-org/ieee/web/org/about/ieee_code_of_conduct.pdf" class="ml-1">
               {{- printf "IEEE Code of Conduct" -}}
