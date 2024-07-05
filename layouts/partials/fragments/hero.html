@@ -16,6 +16,7 @@
       class="jumbotron text-center header-image mb-0
         {{- printf " bg-%s" $bg -}}
       ">
+      <div class="filter-layer">
   {{- else }}
     <div style="
         {{- with .Params.minHeight -}}
@@ -138,6 +139,7 @@
         </div>
       </a>
     {{- end }}
+  </div>  
   </div>
   </div>
 </header>
