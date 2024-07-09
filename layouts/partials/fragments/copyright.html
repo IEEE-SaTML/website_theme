@@ -31,10 +31,21 @@
       {{- if eq .Params.attribution true }}
         <div class="col-auto mx-auto">
           <div class="row mx-0 navbar-text text-center dark">
-            {{- i18n "attribution" -}}
-            <a href="https://www.ieee.org/content/dam/ieee-org/ieee/web/org/about/ieee_code_of_conduct.pdf" class="ml-1">
+            {{- printf "This conference follows the" -}}
+            <a
+            href="https://www.ieee.org/content/dam/ieee-org/ieee/web/org/about/ieee_code_of_conduct.pdf"
+            target="_blank" class="ml-1">
               {{- printf "IEEE Code of Conduct" -}}
             </a>
+            {{- printf " ·" -}}
+            <a href="https://www.ieee.org/security-privacy.html" target="_blank" class="ml-1">
+              {{- printf "IEEE Privacy Policy" -}}
+            </a>
+            {{- printf " ·" -}}
+            <a href="/statements" class="ml-1">
+              {{- printf "Conference Statements" -}}
+            </a>
+            
           </div>
         </div>
       {{- end -}}
