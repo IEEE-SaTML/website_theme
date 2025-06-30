@@ -75,7 +75,12 @@
                 {{ .Name }}
               </a>
               {{ if .HasChildren }}
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <style>
+              .nav-link.dropdown-toggle::after {
+                display: none !important;
+              }
+            </style>
+              <div class="dropdown-menu" style="background-color: #FFFFFF;" aria-labelledby="navbarDropdown">
                 {{ range .Children }}
                   <a class="dropdown-item {{ if $.root.IsMenuCurrent "main" . }}active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
                 {{ end }}
